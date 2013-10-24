@@ -1,0 +1,115 @@
+/*  ========================================================================
+	BASE STYLES
+	======================================================================== */
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: #efefef url(../img/body-bg.jpg);
+	color: #565a5c;
+	font: 100%/1.5 "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+	text-align: center;
+}
+
+p {
+	color: #85888a;
+	font-size: 1.25em;
+	font-weight: 300;
+}
+
+audio,
+canvas,
+img,
+video { vertical-align: middle; }
+
+/*  ========================================================================
+	MAIN STYLES
+	======================================================================== */
+
+/*  MAIN HEADER  */
+.main-hdr h1 { margin: 1em 0; }
+.main-hdr h2 {
+	font-size: 2em;
+	font-weight: 300;
+	margin: 0;
+}
+
+/*  MAIN CONTENT  */
+.main-cnt ul {
+	margin: 3em;
+	list-style-type: none;
+	padding: 0;
+	}
+	.main-cnt ul li {
+		display: inline-block;
+		font-size: 0.9em;
+		margin: 0 2em;
+	}
+	.main-cnt ul li [class^="icon-"],
+	.main-cnt ul li [class*=" icon-"] {
+		display: block;
+		margin: 0 0 0.35em;
+	}
+
+.btn-contact {
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+
+	display: inline-block;
+	font-size: 1.25em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #565a5c;
+	line-height: 2.75;
+	border: 3px solid #565a5c;
+	width: 14em;
+	}
+	.btn-contact:hover {
+		background: #565a5c;
+		color: #fff;
+	}
+	.btn-contact:active,
+	.btn-contact:focus {
+		background: #85888a;
+		border-color: #85888a;
+	}
+
+
+
+/*  MAIN FOOTER  */
+.main-ftr {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 2em;
+	}
+	.main-nav {
+		overflow: hidden;
+		height: 100%;
+		}
+		.main-nav a {
+			color: #fff;
+			display: inline-block;
+			text-decoration: none;
+		}
+
+/*  ========================================================================
+	HELPER CLASSES
+	======================================================================== */
+.clearfix:before,
+.clearfix:after {
+	content: " ";
+	display: table;
+	}
+	.clearfix:after { clear: both; }
+
+/*  ========================================================================
+	MEDIA QUERIES
+	======================================================================== */
+@media only screen and (min-width: 35em) {}
