@@ -18,7 +18,7 @@ body {
 
 p {
 	color: #85888a;
-	font-size: 1.25em;
+	font-size: 0.9em;
 	font-weight: 300;
 }
 
@@ -32,76 +32,129 @@ video { vertical-align: middle; }
 	======================================================================== */
 
 /*  MAIN HEADER  */
-.main-hdr h1 { margin: 1em 0; }
+.main-hdr h1 {
+	background: url(../img/logo-mawape-small.png) no-repeat;
+	width: 196px;
+	height: 122px;
+	margin: 1em auto;
+}
 .main-hdr h2 {
-	font-size: 2em;
+	font-size: 1.25em;
 	font-weight: 300;
 	margin: 0;
 }
 
 /*  MAIN CONTENT  */
 .main-cnt ul {
-	margin: 3em;
+	margin: 1.5em auto;
 	list-style-type: none;
 	padding: 0;
 	}
 	.main-cnt ul li {
 		display: inline-block;
-		font-size: 0.9em;
-		margin: 0 2em;
+		font-size: 0.75em;
+		margin: 0 1.5em;
 	}
-	.main-cnt ul li [class^="icon-"],
-	.main-cnt ul li [class*=" icon-"] {
+	.main-cnt ul li .fa {
 		display: block;
-		margin: 0 0 0.35em;
+		margin: 0 0 0.2em;
 	}
+	.main-cnt ul li .fa-4x { font-size: 3em; }
 
 .btn-contact {
 	-webkit-border-radius: 6px;
 	border-radius: 6px;
 
 	display: inline-block;
-	font-size: 1.25em;
+	font-size: 1em;
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #565a5c;
 	line-height: 2.75;
 	border: 3px solid #565a5c;
-	width: 14em;
+	width: 13em;
 	}
 	.btn-contact:hover {
 		background: #565a5c;
 		color: #fff;
 	}
+	.btn-contact.active,
 	.btn-contact:active,
 	.btn-contact:focus {
 		background: #85888a;
 		border-color: #85888a;
+		color: #fff;
 	}
-
 
 
 /*  MAIN FOOTER  */
-.main-ftr {
-	position: fixed;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	height: 2em;
-	}
+.main-ftr { margin: 2em auto 0; }
 	.main-nav {
 		overflow: hidden;
 		height: 100%;
 		}
 		.main-nav a {
-			color: #fff;
+			color: #b0b0b0;
 			display: inline-block;
 			text-decoration: none;
 		}
+		.main-nav a.fa-lg { font-size: 1em; }
+		.main-nav a[title*="Facebook"]:hover { color: #3b5998; }
+		.main-nav a[title*="Twitter"]:hover { color: #00acee; }
+		.main-nav a[title*="Google Plus"]:hover { color: #dd1812; }
+		.main-nav a[title*="Instagram"]:hover { color: #3f729b; }
+		.main-nav a[title*="LinkedIn"]:hover { color: #0e76a8; }
+		.main-nav a[title*="Blog"]:hover { color: #eb510e; }
+
+/*  MODAL  */
+.modal-wrapper {
+	background: rgba(200, 200, 200, 0.75);
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	}
+	.modal-wrapper.modal-open { display: block; }
+	
+	.modal-cnt {
+		background: #fff;
+		
+		-webkit-border-radius: 6px;
+		border-radius: 6px;
+		
+		border: 3px solid #ccc;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 75%;
+		height: 75%;
+		max-width: 40em;
+		max-height: 35em;
+	}
 
 /*  ========================================================================
 	HELPER CLASSES
 	======================================================================== */
+
+/*  Image replacement  */
+.ir {
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	}
+	.ir:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+
+/*  Clearfix  */
 .clearfix:before,
 .clearfix:after {
 	content: " ";
@@ -112,4 +165,39 @@ video { vertical-align: middle; }
 /*  ========================================================================
 	MEDIA QUERIES
 	======================================================================== */
-@media only screen and (min-width: 35em) {}
+@media only screen and (min-width: 40em) {
+	.main-hdr h1 {
+		background: url(../img/logo-mawape-big.png) no-repeat;
+		width: 285px;
+		height: 177px;
+	}
+	.main-hdr h2 { font-size: 2em; }
+	p {	font-size: 1.25em; }
+	
+	.main-cnt ul { margin: 3em auto; }
+	.main-cnt ul li {
+		font-size: 0.9em;
+		margin: 0 2em;
+		}
+		.main-cnt ul li .fa {
+			display: block;
+			margin: 0 0 0.35em;
+			}
+			.main-cnt ul li .fa-4x { font-size: 4em; }
+	
+	.btn-contact {
+		font-size: 1.25em;
+		width: 14em;
+	}
+
+	/*  MAIN FOOTER  */
+	.main-ftr {
+		margin: 0;
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 3em;
+		}
+		.main-nav a.fa-lg { font-size: 1.3333333333333333em; }
+}
