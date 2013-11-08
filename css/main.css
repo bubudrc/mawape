@@ -9,6 +9,12 @@
 	box-sizing: border-box;
 }
 
+html,
+button,
+input,
+select,
+textarea { color: #565a5c; }
+
 body {
 	background: #efefef url(../img/body-bg.jpg);
 	color: #565a5c;
@@ -20,12 +26,44 @@ p {
 	color: #85888a;
 	font-size: 0.9em;
 	font-weight: 300;
+	font-weight: normal;
 }
 
 audio,
 canvas,
 img,
 video { vertical-align: middle; }
+
+fieldset { border: none; }
+textarea { resize: vertical; }
+
+.btn {
+	background: transparent;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+
+	display: inline-block;
+	font-size: 1em;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #565a5c;
+	line-height: 2.75;
+	border: 3px solid #565a5c;
+	width: 13em;
+	}
+	.btn:hover,
+	.btn.active,
+	.btn:focus {
+		background: #565a5c;
+		color: #fff;
+		outline: none;
+	}
+	.btn:active {
+		outline: none;
+		background: #85888a;
+		border-color: #85888a;
+		color: #fff;
+	}
 
 /*  ========================================================================
 	MAIN STYLES
@@ -61,81 +99,106 @@ video { vertical-align: middle; }
 	}
 	.main-cnt ul li .fa-4x { font-size: 3em; }
 
-.btn-contact {
-	-webkit-border-radius: 6px;
-	border-radius: 6px;
+	#contact-trigger { margin-bottom: 1em; }
 
-	display: inline-block;
-	font-size: 1em;
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #565a5c;
-	line-height: 2.75;
-	border: 3px solid #565a5c;
-	width: 13em;
+/*  CONTACT  */
+#contact-wrapper {
+	background: #fafafa;
+	
+	-webkit-border-radius: 0.5em;
+	border-radius: 0.5em;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: #ccc #e0e0e0 #fff #e0e0e0;
+	display: none;
+	margin: 0 auto 1em;
+	width: 75%;
+	max-width: 30em;
 	}
-	.btn-contact:hover {
-		background: #565a5c;
-		color: #fff;
+	#contact-wrapper.open {
+		display: block;
+		margin-bottom: 2em;
+		position: relative;
 	}
-	.btn-contact.active,
-	.btn-contact:active,
-	.btn-contact:focus {
-		background: #85888a;
-		border-color: #85888a;
-		color: #fff;
-	}
+	#contact-wrapper:after,
+	#contact-wrapper:before {
+		bottom: 100%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		}
+		#contact-wrapper:after {
+			border-color: rgba(250, 250, 250, 0);
+			border-bottom-color: #fafafa;
+			border-width: 10px;
+			left: 50%;
+			margin-left: -10px;
+		}
+		#contact-wrapper:before {
+			border-color: rgba(204, 204, 204, 0);
+			border-bottom-color: #ccc;
+			border-width: 11px;
+			left: 50%;
+			margin-left: -11px;
+		}
+
+	#contact-wrapper form {
+		margin: 0;
+		padding: 1.5em;
+		}
+		#contact-wrapper fieldset {
+			margin: 0;
+			padding: 0;
+			}
+			#contact-wrapper .form-field { margin: 2em 0 0; }
+				#contact-wrapper .form-field:first-child { margin: 0; }
+	
+				#contact-wrapper input[type="text"],
+				#contact-wrapper textarea {
+					border: none;
+					border-bottom: 2px solid #ccc;
+					background: none;
+					width: 100%;
+					padding: 0.5em 0;
+					}
+					#contact-wrapper .form-field:first-child input { padding-top: 0; }
+					#contact-wrapper input[type="text"]:focus,
+					#contact-wrapper textarea:focus {
+						outline: none;
+						border-bottom-color: #565a5c;
+					}
+					#contact-wrapper input[type="submit"] {
+						margin: 1em 0 0;
+						width: 100%;
+					}
 
 
 /*  MAIN FOOTER  */
-.main-ftr { margin: 2em auto 0; }
+.main-ftr { margin: 0 auto; }
 	.main-nav {
 		overflow: hidden;
-		height: 100%;
+		padding: 0 0 0.5em 0;
 		}
 		.main-nav a {
 			color: #b0b0b0;
 			display: inline-block;
 			text-decoration: none;
-		}
-		.main-nav a.fa-lg { font-size: 1em; }
+			}
+			.main-nav a:hover,
+			.main-nav a:focus,
+			.main-nav a:active { outline: none; }
+		
+		.main-nav a.fa-lg { font-size: 1.2em; }
 		.main-nav a[title*="Facebook"]:hover { color: #3b5998; }
 		.main-nav a[title*="Twitter"]:hover { color: #00acee; }
 		.main-nav a[title*="Google Plus"]:hover { color: #dd1812; }
 		.main-nav a[title*="Instagram"]:hover { color: #3f729b; }
 		.main-nav a[title*="LinkedIn"]:hover { color: #0e76a8; }
 		.main-nav a[title*="Blog"]:hover { color: #eb510e; }
-
-/*  MODAL  */
-.modal-wrapper {
-	background: rgba(200, 200, 200, 0.75);
-	display: none;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	}
-	.modal-wrapper.modal-open { display: block; }
-	
-	.modal-cnt {
-		background: #fff;
-		
-		-webkit-border-radius: 6px;
-		border-radius: 6px;
-		
-		border: 3px solid #ccc;
-		margin: auto;
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		width: 75%;
-		height: 75%;
-		max-width: 40em;
-		max-height: 35em;
-	}
 
 /*  ========================================================================
 	HELPER CLASSES
@@ -162,6 +225,17 @@ video { vertical-align: middle; }
 	}
 	.clearfix:after { clear: both; }
 
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
 /*  ========================================================================
 	MEDIA QUERIES
 	======================================================================== */
@@ -171,33 +245,40 @@ video { vertical-align: middle; }
 		width: 285px;
 		height: 177px;
 	}
+	
 	.main-hdr h2 { font-size: 2em; }
-	p {	font-size: 1.25em; }
-	
-	.main-cnt ul { margin: 3em auto; }
-	.main-cnt ul li {
-		font-size: 0.9em;
-		margin: 0 2em;
-		}
-		.main-cnt ul li .fa {
-			display: block;
-			margin: 0 0 0.35em;
+		p {	font-size: 1.25em; }
+
+	.main-cnt { padding-bottom: 5em; }
+		.main-cnt ul { margin: 3em auto; }
+		.main-cnt ul li {
+			font-size: 0.9em;
+			margin: 0 2em;
 			}
-			.main-cnt ul li .fa-4x { font-size: 4em; }
+			.main-cnt ul li .fa {
+				display: block;
+				margin: 0 0 0.35em;
+				}
+				.main-cnt ul li .fa-4x { font-size: 4em; }
 	
+	#contact-trigger { margin-bottom: 2em; }
 	.btn-contact {
 		font-size: 1.25em;
 		width: 14em;
 	}
-
+	#contact-wrapper { margin: 0 auto 2em; }
+		#contact-wrapper form { padding: 2.5em; }
+	
 	/*  MAIN FOOTER  */
 	.main-ftr {
+		background: #efefef url(../img/body-bg.jpg);
 		margin: 0;
 		position: fixed;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		height: 3em;
+		height: 4.5em;
 		}
+		.main-nav { padding: 1em 0; }
 		.main-nav a.fa-lg { font-size: 1.3333333333333333em; }
 }

@@ -25,7 +25,32 @@
 			<li><i class="fa fa-android fa-4x"></i>Android</li>
 			<li><i class="fa fa-html5 fa-4x"></i>WebApps</li>
 		</ul>
-		<a class="btn-contact" href="#">Contact Us</a>
+		<a class="btn" id="contact-trigger" data-content-wrapper="contact-wrapper" href="#">Contact Us</a>
+		<div id="contact-wrapper">
+			<form action="" method="">
+				<fieldset>
+					<div class="form-field">
+						<label class="visuallyhidden" for="contact-name">Name:</label>
+						<input type="text" id="contact-name" placeholder="Name...">
+					</div>
+					<div class="form-field">
+						<label class="visuallyhidden" for="contact-mail">E-mail:</label>
+						<input type="text" id="contact-mail" placeholder="E-mail...">
+					</div>
+					<div class="form-field">
+						<label class="visuallyhidden" for="contact-phone">Phone:</label>
+						<input type="text" id="contact-phone" placeholder="Phone...">
+					</div>
+					<div class="form-field">
+						<label class="visuallyhidden" for="contact-msj">Message:</label>
+						<textarea id="contact-msj" rows="1" placeholder="Message..."></textarea>
+					</div>
+					<div class="form-field">
+						<input class="btn" type="submit" id="contact-submit" data-content-wrapper="contact-wrapper" value="Send message">
+					</div>
+				</fieldset>
+			</form>
+		</div>
 	</div>
 	
 	<!-- Footer -->
@@ -58,11 +83,8 @@
 		</nav>
 	</footer>
 
-	<div class="modal-wrapper">
-		<div class="modal-cnt"></div>
-	</div>
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/jquery.placeholder.js"></script>
 </body>
 </html>

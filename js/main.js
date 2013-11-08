@@ -1,22 +1,53 @@
 $(function() {
 
-	var modalWrapper = $(".modal-wrapper");
-	var modalContent = $(".modal-cnt");
+	// Initialize placeholer plugin
+	$('input, textarea').placeholder();
 
-	// Change active tab and load new movies list
-	$('.btn-contact').on('click', function(e){
+	//  Toggle slide form through the "contact us" button
+	$('#contact-trigger').on('click', function(e){
 		e.preventDefault();
-		$(this).addClass('active');
-		modalWrapper.addClass('modal-open');
+		slideContent(this);
 	})
 
-	$(document).mouseup(function (e) {
-
-		// if the target of the click isn't the container nor a descendant of the container
-		if (!modalContent.is(e.target) && modalContent.has(e.target).length === 0) {
-			modalWrapper.removeClass('modal-open');
-			$('.btn-contact').removeClass('active');
-		}
+	// Toggle slide form through the SUBMIT input
+	$('#contact-submit').on('click', function(e){
+		e.preventDefault();
+		slideContent(this);
 	});
 	
 });
+
+// Handles the slide
+var slideContent = function (trigger) {
+	var contentTrigger = $(trigger);
+	var contentWrapper = $('#' + $(trigger).attr('data-content-wrapper'));
+
+	if( contentWrapper.hasClass('open')) {
+		$('.btn').removeClass('active');
+		contentWrapper.slideUp().removeClass('open');
+	} else {
+		contentTrigger.addClass('active');
+		contentWrapper.slideDown();
+		contentWrapper.addClass('open');
+		$('body').scrollTo(contentWrapper);
+	}
+}
+
+//  Animate the scroll
+$.fn.scrollTo = function( target, options, callback ){
+  if(typeof options == 'function' && arguments.length == 2){ callback = options; options = target; }
+  var settings = $.extend({
+    scrollTarget  : target,
+    offsetTop     : 50,
+    duration      : 500,
+    easing        : 'swing'
+  }, options);
+  return this.each(function(){
+    var scrollPane = $(this);
+    var scrollTarget = (typeof settings.scrollTarget == "number") ? settings.scrollTarget : $(settings.scrollTarget);
+    var scrollY = (typeof scrollTarget == "number") ? scrollTarget : scrollTarget.offset().top + scrollPane.scrollTop() - parseInt(settings.offsetTop);
+    scrollPane.animate({scrollTop : scrollY }, parseInt(settings.duration), settings.easing, function(){
+      if (typeof callback == 'function') { callback.call(this); }
+    });
+  });
+}
