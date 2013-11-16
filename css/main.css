@@ -180,12 +180,12 @@ textarea { resize: vertical; }
 #result-form{
 	position: absolute;
 	width: 480px;
-	height: 420px;
 	background: black;
 	opacity: 0.5;
 	z-index: 9999;
 	display: none;
-	bottom: 0;
+	top: 0;
+	left: 0;
 
 }
 	p#result-process{

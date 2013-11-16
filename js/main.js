@@ -14,6 +14,10 @@ $(function() {
 		e.preventDefault();
 		slideContent(this);
 	});
+
+	// Validate and send the contact email
+	var inputsElements = getAllInputsElements();
+	sendEmail(inputsElements);
 	
 });
 
@@ -26,6 +30,57 @@ var slideContent = function (trigger) {
 	contentWrapper.slideDown();
 	contentWrapper.addClass('open');
 	$('body').scrollTo(contentWrapper);
+}
+
+var getAllInputsElements = function(){
+	var formElements = new Array();
+	$("#contact-data :input").each(function(){
+	    formElements.push($(this));
+	});
+
+	return formElements;
+}
+
+var sendEmail = function(formElements){
+	$('#contact-data').validate({
+        submitHandler: function(form) {
+            var parametros = {
+	                "contact-name" : $('#contact-name').val(),
+	                "contact-mail" : $('#contact-mail').val(),
+	                "contact-phone" : $('#contact-phone').val(),
+	                "contact-msj" : $('#contact-msj').val()
+	        };
+	        $.ajax({
+	                data:  parametros,
+	                url:   'sendmail.php',
+	                type:  'post',
+	                beforeSend: function () {
+	                	$('#result-form').height($('#contact-data').outerHeight(true));
+	                	
+	                	$("#result-form").show();
+	                    $("#result-process").html("Sending, please wait...");
+	                },
+	                success:  function (response) {
+	                    $("#result-process").html('Great. Your email was sent. Thanks');
+
+	                    setTimeout(function(){
+	                    		$("#result-form").hide();
+	                    		$('.btn').removeClass('active');
+								$('#contact-wrapper').slideUp('slow').removeClass('open');
+								$('body').scrollTop(300);
+
+								$.each(formElements, function(key, value) {
+									if(value.val() != 'Send message'){
+										value.val('');
+									}
+								});
+	                    	},3000
+	                    );
+	                }
+	        });
+
+        }
+    });
 }
 
 //  Animate the scroll
