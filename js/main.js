@@ -22,15 +22,10 @@ var slideContent = function (trigger) {
 	var contentTrigger = $(trigger);
 	var contentWrapper = $('#' + $(trigger).attr('data-content-wrapper'));
 
-	if( contentWrapper.hasClass('open')) {
-		$('.btn').removeClass('active');
-		contentWrapper.slideUp().removeClass('open');
-	} else {
-		contentTrigger.addClass('active');
-		contentWrapper.slideDown();
-		contentWrapper.addClass('open');
-		$('body').scrollTo(contentWrapper);
-	}
+	contentTrigger.addClass('active');
+	contentWrapper.slideDown();
+	contentWrapper.addClass('open');
+	$('body').scrollTo(contentWrapper);
 }
 
 //  Animate the scroll

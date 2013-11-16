@@ -27,40 +27,45 @@
 		</ul>
 		<a class="btn" id="contact-trigger" data-content-wrapper="contact-wrapper" href="#">Contact Us</a>
 		<div id="contact-wrapper">
-			<form action="" method="">
+			<form action="" method="post" id="contact-data">
 				<fieldset>
-					<div class="form-field">
+				    <div class="form-field">
 						<label class="visuallyhidden" for="contact-name">Name:</label>
-						<input type="text" id="contact-name" placeholder="Name...">
+						<input type="text" id="contact-name" name="contact-name" placeholder="Name..." class="required">
 					</div>
 					<div class="form-field">
 						<label class="visuallyhidden" for="contact-mail">E-mail:</label>
-						<input type="text" id="contact-mail" placeholder="E-mail...">
+						<input type="text" id="contact-mail" name="contact-mail" placeholder="E-mail..." class="required email">
 					</div>
 					<div class="form-field">
 						<label class="visuallyhidden" for="contact-phone">Phone:</label>
-						<input type="text" id="contact-phone" placeholder="Phone...">
+						<input type="text" id="contact-phone" name="contact-phone" placeholder="Phone..." >
 					</div>
 					<div class="form-field">
 						<label class="visuallyhidden" for="contact-msj">Message:</label>
-						<textarea id="contact-msj" rows="1" placeholder="Message..."></textarea>
+						<textarea id="contact-msj" name="contact-msj" rows="1" placeholder="Message..." class="required"></textarea>
 					</div>
+
 					<div class="form-field">
-						<input class="btn" type="submit" id="contact-submit" data-content-wrapper="contact-wrapper" value="Send message">
+				    	<input class="btn" type="submit" value="Send message" data-content-wrapper="contact-wrapper">
 					</div>
 				</fieldset>
 			</form>
+			<div id="result-form">
+				<p id="result-process"></p>
+			</div>
+
 		</div>
 	</div>
 	
 	<!-- Footer -->
 	<footer class="main-ftr">
 		<nav class="main-nav">
-			<a href="#" target="_blank" title="Facebook" class="fa-stack fa-lg">
+			<a href="https://www.facebook.com/mawape" target="_blank" title="Facebook" class="fa-stack fa-lg">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
 			</a>
-			<a href="#" target="_blank" title="Twitter" class="fa-stack fa-lg">
+			<a href="https://twitter.com/mawape" target="_blank" title="Twitter" class="fa-stack fa-lg">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
 			</a>
@@ -76,7 +81,7 @@
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
 			</a>
-			<a href="#" target="_blank" title="Blog" class="fa-stack fa-lg">
+			<a href="/blog" target="_blank" title="Blog" class="fa-stack fa-lg">
 				<i class="fa fa-circle fa-stack-2x"></i>
 				<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 			</a>
@@ -86,5 +91,57 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/jquery.placeholder.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script>
+	/*$(function(){
+		console.log($('#contact-data').serialize());
+        $('#contact-data').validate();
+    });*/
+
+    $(document).ready(function() {
+    	var formElements = new Array();
+		$("#contact-data :input").each(function(){
+		    formElements.push($(this));
+		});
+
+	    $('#contact-data').validate({
+	        submitHandler: function(form) {
+	            var parametros = {
+		                "contact-name" : $('#contact-name').val(),
+		                "contact-mail" : $('#contact-mail').val(),
+		                "contact-phone" : $('#contact-phone').val(),
+		                "contact-msj" : $('#contact-msj').val()
+		        };
+		        $.ajax({
+		                data:  parametros,
+		                url:   'sendmail.php',
+		                type:  'post',
+		                beforeSend: function () {
+		                	$("#result-form").show();
+		                    $("#result-process").html("Sending, please wait...");
+		                },
+		                success:  function (response) {
+		                    $("#result-process").html('Great. Your email was sent. Thanks');
+
+		                    setTimeout(function(){
+		                    		$("#result-form").hide();
+		                    		$('.btn').removeClass('active');
+									$('#contact-wrapper').slideUp('slow').removeClass('open');
+									$('body').scrollTop(300);
+
+									$.each(formElements, function(key, value) {
+										if(value.val() != 'Send message'){
+											value.val('');
+										}
+									});
+		                    	},3000
+		                    );
+		                }
+		        });
+
+	        }
+	    });
+	}); 
+	</script>
 </body>
 </html>

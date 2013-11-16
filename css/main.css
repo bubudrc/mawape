@@ -115,6 +115,7 @@ textarea { resize: vertical; }
 	margin: 0 auto 1em;
 	width: 75%;
 	max-width: 30em;
+	position: relative;
 	}
 	#contact-wrapper.open {
 		display: block;
@@ -175,6 +176,22 @@ textarea { resize: vertical; }
 						margin: 1em 0 0;
 						width: 100%;
 					}
+
+#result-form{
+	position: absolute;
+	width: 480px;
+	height: 420px;
+	background: black;
+	opacity: 0.5;
+	z-index: 9999;
+	display: none;
+	bottom: 0;
+
+}
+	p#result-process{
+		color: white;
+		font-weight: bold;
+	}	
 
 
 /*  MAIN FOOTER  */
