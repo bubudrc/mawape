@@ -6,13 +6,13 @@ $(function() {
 	//  Toggle slide form through the "contact us" button
 	$('#contact-trigger').on('click', function(e){
 		e.preventDefault();
-		slideContent(this);
+		slideContent(this, 'contactBtn');
 	})
 
 	// Toggle slide form through the SUBMIT input
 	$('#contact-submit').on('click', function(e){
 		e.preventDefault();
-		slideContent(this);
+		slideContent(this, 'submitBtn');
 	});
 
 	// Validate and send the contact email
@@ -22,14 +22,27 @@ $(function() {
 });
 
 // Handles the slide
-var slideContent = function (trigger) {
+var slideContent = function (trigger, btnEvent) {
 	var contentTrigger = $(trigger);
 	var contentWrapper = $('#' + $(trigger).attr('data-content-wrapper'));
 
-	contentTrigger.addClass('active');
+
+	if(contentWrapper.hasClass('open')) {
+		if(btnEvent == 'contactBtn'){
+			$('.btn').removeClass('active');
+ 		    contentWrapper.slideUp().removeClass('open');		
+		}
+ 	} else {
+ 		contentTrigger.addClass('active');
+ 		contentWrapper.slideDown();
+ 		contentWrapper.addClass('open');
+ 		$('body').scrollTo(contentWrapper);
+ 	}
+
+	/*contentTrigger.addClass('active');
 	contentWrapper.slideDown();
 	contentWrapper.addClass('open');
-	$('body').scrollTo(contentWrapper);
+	$('body').scrollTo(contentWrapper);*/
 }
 
 var getAllInputsElements = function(){
