@@ -101,6 +101,19 @@ textarea { resize: vertical; }
 
 	#contact-trigger { margin-bottom: 1em; }
 
+	.main-cnt ul li a {
+			color: #565A5C;
+			display: inline-block;
+			text-decoration: none;
+			}
+
+	.main-cnt ul li a:hover,
+	.main-cnt ul li a:focus,
+	.main-cnt ul li a:active { outline: none; }
+
+	.main-cnt ul li a[title*="AppleStore"]:hover { color: #b0b0b0; }
+	.main-cnt ul li a[title*="GooglePlay"]:hover { color: #A4CA39; }
+
 /*  CONTACT  */
 #contact-wrapper {
 	background: #fafafa;
@@ -213,8 +226,7 @@ textarea { resize: vertical; }
 		.main-nav a[title*="Facebook"]:hover { color: #3b5998; }
 		.main-nav a[title*="Twitter"]:hover { color: #00acee; }
 		.main-nav a[title*="Google Plus"]:hover { color: #dd1812; }
-		/*.main-nav a[title*="Instagram"]:hover { color: #3f729b; }
-		.main-nav a[title*="LinkedIn"]:hover { color: #0e76a8; }*/
+		.main-nav a[title*="LinkedIn"]:hover { color: #0e76a8; }
 		.main-nav a[title*="Github"]:hover { color: #000; }
 		.main-nav a[title*="Blog"]:hover { color: #eb510e; }
 
