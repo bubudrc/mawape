@@ -570,10 +570,14 @@ SECTION: INTRO
         -o-transform: matrix(1.1,0,0,1.1,0,0);
         transform: matrix(1.1,0,0,1.1,0,0);
         }
-        .portolio__thumb--01 { background-image: url(../img/portfolio__aimant--thumb.png); }
-        .portolio__thumb--02 { background-image: url(../img/portfolio__photoready--thumb.png); }
-        .portolio__thumb--03 { background-image: url(../img/portfolio__school--thumb.png); }
-        .portolio__thumb--04 { background-image: url(../img/portfolio__sima--thumb.png); }
+        .portolio__thumb--01 { background-image: url(../img/portfolio__envialosimple--thumb.png); }
+        .portolio__thumb--02 { background-image: url(../img/portfolio__tedxrosario--thumb.png); }
+        .portolio__thumb--03 { background-image: url(../img/portfolio__donwebdns--thumb.png); }
+        .portolio__thumb--04 { background-image: url(../img/portfolio__aimant--thumb.png); }
+        .portolio__thumb--05 { background-image: url(../img/portfolio__photoready--thumb.png); }
+        .portolio__thumb--06 { background-image: url(../img/portfolio__school--thumb.png); }
+        .portolio__thumb--07 { background-image: url(../img/portfolio__meetme--thumb.png); }
+        .portolio__thumb--08 { background-image: url(../img/portfolio__informediario--thumb.png); }
 
 /*  PORTFOLIO CONTENT  */
 .og-grid li.og-expanded > a::after {

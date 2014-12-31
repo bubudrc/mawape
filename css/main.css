@@ -279,7 +279,7 @@ textarea { resize: vertical; }
 	.main-hdr h2 { font-size: 2em; }
 		p {	font-size: 1.25em; }
 
-	.main-cnt { padding-bottom: 5em; }
+	.main-cnt { padding-bottom: 5em; margin-top: 20px; }
 		.main-cnt ul { margin: 3em auto; }
 		.main-cnt ul li {
 			font-size: 0.9em;
