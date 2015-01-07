@@ -74,7 +74,7 @@ textarea { resize: vertical; }
 	background: url(../img/logo-mawape-small.png) no-repeat;
 	width: 196px;
 	height: 122px;
-	margin: 1em auto;
+	margin: 0.5em auto;
 }
 .main-hdr h2 {
 	font-size: 1.25em;
@@ -266,6 +266,8 @@ textarea { resize: vertical; }
     width: 1px;
 }
 
+.info-contact{margin: 0px auto;}
+
 /*  ========================================================================
 	MEDIA QUERIES
 	======================================================================== */
@@ -279,7 +281,7 @@ textarea { resize: vertical; }
 	.main-hdr h2 { font-size: 2em; }
 		p {	font-size: 1.25em; }
 
-	.main-cnt { padding-bottom: 5em; margin-top: 20px; }
+	.main-cnt { padding-bottom: 5em; margin: 20px auto; }
 		.main-cnt ul { margin: 3em auto; }
 		.main-cnt ul li {
 			font-size: 0.9em;
@@ -307,8 +309,8 @@ textarea { resize: vertical; }
 		left: 0;
 		right: 0;
 		bottom: 0;
-		height: 4.5em;
+		height: 5.5em;
 		}
-		.main-nav { padding: 1em 0; }
+		.main-nav { padding: 0.5em 0; }
 		.main-nav a.fa-lg { font-size: 1.3333333333333333em; }
 }
