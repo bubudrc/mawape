@@ -403,7 +403,7 @@ var Grid = (function() {
 			this.$href.attr( 'href', eldata.href );
 			this.$applestore.attr( 'href', eldata.applestore );
 			this.$playstore.attr( 'href', eldata.playstore );
-			this.$client.html( '<strong>Client: </strong>' + eldata.client);
+			this.$client.html( '<strong>Partners: </strong>' + eldata.client);
 			this.$devices.html( '<strong>Devices: </strong>' + eldata.devices );
 
 			var self = this;
